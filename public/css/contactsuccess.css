@@ -1,0 +1,17 @@
+body{
+    
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke;
+}
+h1{
+    padding: 50px 50px 50px 50px;
+    text-align: center;
+    font-size: xx-large
+   
+}
+p{
+   text-align: center;
+   font-size:large;
+}

@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="/public/css/home.css">
+        
+        <script>
+            function openNav() {
+               document.getElementById("mySidebar").style.width = "250px";
+               document.getElementById("main").style.marginLeft = "250px";
+              }
+
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+
+        </script>
+    </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <body>
+        <div>
+            
+            <div>
+               <h1> <button class="openbtn" onclick="openNav()"><b>☰</b> </button>EXPENSE TRACKER SYSTEM</h1>
+               
+                <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <li>
+                <ol><a href="/profile">Profile</a></ol>
+                <ol><a href="/contactus">contact</a></ol>
+                <ol><a href="/track">Track</a></ol>
+                <form method="POST" action="/logout">
+                  <button type="submit" class="btn btn-primary">Log out</button>
+              </form>
+                </li>
+              </div>
+              
+             
+              </div>
+             
+              <table>
+                <tr>
+                  <td>
+                    <div class="box">
+                      <a href="/income" class="add" style="text-decoration: none; font-size: 30px; color: purple;"><b>ADD INCOME</b></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="box2">
+                      <a href="/expenses" class="add"  style="text-decoration: none; font-size: 30px; color:purple"><b>ADD EXPENSES</b></a>
+                    </div>
+
+                  </td>
+                </tr>
+                
+               
+              
+
+              </table>
+            
+             
+        
+            </div>
+            
+        </div>
+       
+    </body>
+   
+</html>

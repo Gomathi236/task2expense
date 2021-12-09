@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>
+            Add Source
+        </title>
+        <link rel="stylesheet" href="/public/css/addsource.css">
+<script>
+
+window.addEventListener('load',()=>{
+
+const params = (new URL(document.location)).searchParams;
+let type = params.get('type');
+
+
+document.getElementById("source").innerHTML = type;
+
+})
+
+</script>
+       
+       
+    </head>
+    <body>
+        <h1>
+            ADD SOURCE
+        </h1>
+        <% if(message) {%>
+            <div>
+                <%= message %>
+            </div>
+            <%}%>
+        <div class="box">
+        <form class="form" method="POST" action="/income" >
+            <table>
+           <tr>
+               <td><label>Source Type:</label></td><br/>
+               <td><input type="text" id="type" class="input-field" name="type"></td>
+           </tr>
+        <tr>
+            <td>
+                <button type="submit"  class="btn">Save</button>
+            </td>
+        </tr>
+      
+        </form>
+        <tr>
+            <td><a href="/income"><button class="btn">Cancel</button></a></td>
+        </tr>
+        
+        </div>
+    </table>
+   
+    </body>
+    
+</html>

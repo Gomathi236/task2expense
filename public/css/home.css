@@ -1,0 +1,123 @@
+.btn{
+    width:100px;
+    height: 40px;
+    background-color: purple;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 1em;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-left: 55px;
+    margin-top: 500px;
+   
+
+}
+.box{
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  box-shadow: 0 0 15px #00000033;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-left: 100px;
+  margin-top: 50px;
+ 
+  text-decoration: none;
+
+}
+.box2{
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  box-shadow: 0 0 15px #00000033;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-left: 100px;
+  margin-top: 50px;
+  float: left;
+  text-decoration: none;
+
+}
+h1{
+  display: block;
+  padding: 5px;
+  background-color:black;
+  margin: 0;
+  padding: 25px;
+  margin-top: 0px;
+  text-align: center;
+  color: white;
+  
+}
+body{
+  margin: 0px;
+ background-color: whitesmoke;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:whitesmoke;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  border: black;
+  
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color:purple;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 30px;
+  cursor: pointer;
+  background-color:black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  float: left;
+}
+
+.openbtn:hover {
+  background-color:black;
+}
+
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 100px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
