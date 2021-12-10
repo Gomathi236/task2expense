@@ -7,6 +7,26 @@ let getLoginPage = (req,res)=>{
 
 
 };
+let handleLogin = async (req, res) => {
+    let errorsArr = [];
+    let validationErrors = validationResult(req);
+    if (!validationErrors.isEmpty()) {
+        let errors = Object.values(validationErrors.mapped());
+        errors.forEach((item) => {
+            errorsArr.push(item.msg);
+        });
+        req.flash("errors", errorsArr);
+        return res.redirect("/login");
+    }
+
+    try {
+        await loginService.handleLogin(req.body.email, req.body.password);
+        return res.redirect("/");
+    } catch (err) {
+        req.flash("errors", err);
+        return res.redirect("/login");
+    }
+};
 let  checkLoggedOut = (req, res, next) =>{
     if(req.isAuthenticated()){
         return res.redirect("/");
@@ -32,5 +52,6 @@ module.exports ={
     getLoginPage:getLoginPage,
     checkLoggedIn:checkLoggedIn,
     checkLoggedOut: checkLoggedOut,
-    postLogOut:postLogOut
+    postLogOut:postLogOut,
+    handleLogin:handleLogin
 }

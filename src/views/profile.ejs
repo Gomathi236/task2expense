@@ -2,46 +2,61 @@
     <head>
         <title>Profile</title>
         <link rel="stylesheet" href="/public/css/profile.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     </head>
     <body>
-       <div class="box">
+     
 
-        <span class="fa fa-user-circle-o"  id="profile" style="font-size:150px"></span>
-        <div>
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <span>Logged In: <%=data[0].username%></span>		  
-                <span class="pull-right"><a href="/home/logout">Logout</a></span>		  
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-3 col-lg-3"> <img alt="User Pic" src="/images/user.jpg" class="img-circle img-responsive"> </div>
-                  <div class=" col-md-9 col-lg-9 "> 
-                    <table class="table table-user-information">
-                      <tbody>
-                        <tr>
-                          <td>Name:</td>
-                          <td><%=data[0].first_name%> <%=data[0].last_name%></td>
-                        </tr>
-                        <tr>
-                          <td>User Name:</td>
-                          <td><%=data[0].username%></td>
-                        </tr>
-                        <tr>
-                          <td>Mobile:</td>
-                          <td><%=data[0].mobile%></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-          </div>
+     
       
-       </div>
-            
-    
+
+<div class="wrapper">
+    <div class="left">
+     <div>
+      <i class="fa fa-user "  id="user"></i>
+     </div>
+     
+     <br/>
+      <h4><%=  user.fullname %></h4>
+         
+    </div>
+   
+    <div class="right">
+        <div class="info">
+            <h3>Information</h3>
+            <div class="info_data">
+                 <div class="data">
+                   
+                   <div>
+                    <label><b>NAME:</b></label>
+                   </div>
+                  <br/>
+                  <div>
+                    <h4><%=  user.fullname %></h4>
+                  </div>
+                  <br/>
+                    <div>
+                      <label><b>EMAIL:</b></label>
+                    </div>   
+                       
+                 <br/>
+                    <div>
+                      <h4><%= user.email %></h4>
+                    </div>  
+                   
+
+                   
+                 </div>
+                 
+            </div>
         </div>
+      
+     
+      
+        
+    </div>
+</div>
+       
     </body>
 </html>

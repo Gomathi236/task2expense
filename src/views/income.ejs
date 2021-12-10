@@ -32,13 +32,24 @@
                 </td>
                 <td>
                   
-                    <input type="text" class="input-field" name="source" id="source" 
-                    <% income.forEach(function (income) { %>
+                    
+                   
+                     <select class="input-field" name="source" id="source">
+                         <option>
+                            <% income.forEach(function (income) { %>
                           
-                            placeholder = "<%= income.type %>"
-                            
-                                                        
-                     <% }) %> >
+                                <%= income.type %>
+                                
+                                                            
+                         <% }) %> 
+
+                         </option>
+                         <option>Business Income</option>
+                          <option>Interest Income</option>  
+                           <option>Dividend Income</option> 
+                            <option>Income</option> 
+                            <option>Gains</option> 
+                     </select>
                     
                    &nbsp; &nbsp;&nbsp;<a href="/addsource"> <i class="fa fa-plus" id="add" style="font-size:24px"></i></a>
                 </td>

@@ -24,7 +24,6 @@
   overflow: hidden;
   margin-left: 100px;
   margin-top: 50px;
- 
   text-decoration: none;
 
 }
@@ -46,15 +45,15 @@
 }
 h1{
   display: block;
-  padding: 5px;
   background-color:black;
   margin: 0;
-  padding: 25px;
-  margin-top: 0px;
-  text-align: center;
+  padding: 40px;
+  text-align: left;
   color: white;
+  font-size: 20px;
   
 }
+
 body{
   margin: 0px;
  background-color: whitesmoke;
@@ -89,18 +88,18 @@ body{
 
 .sidebar .closebtn {
   position: absolute;
-  top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+ 
 }
 
 .openbtn {
-  font-size: 30px;
+  font-size: large;
   cursor: pointer;
   background-color:black;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 10px;
   border: none;
   float: left;
 }
@@ -116,8 +115,13 @@ body{
   margin-left: 100px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+#profile{
+  display: flex;
+  float: right;
 }

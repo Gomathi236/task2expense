@@ -24,13 +24,27 @@
                     <label><b>Category :</b></label><br/>
                 </td>
                 <td>
-                    <input type="text" class="input-field" name="Category" id="Category" 
-                    <% expenses.forEach(function (expenses) { %>
+                    
+                   
+                 <select class="input-field" name="category" id="category">
+                    <option>
+                        <% expenses.forEach(function (expenses) { %>
                           
-                        placeholder = "<%= expenses.name %>,<%= expenses.budget%>"
-                        
-                                                    
-                 <% }) %> >
+                        <%= expenses.name %>,<%= expenses.budget%>
+                            
+                                                        
+                     <% }) %> 
+
+                    </option>
+                    <option>Location cost</option> 
+                    <option>Accounting and Banks expenses</option> 
+                    <option>Education and training expenses</option> 
+                    <option>Office expenses</option> 
+                    <option>Office supplies</option> 
+                    <option>Business Insurance Expenses</option> 
+
+
+                </select>
                     
                    &nbsp; &nbsp;&nbsp;<a href="/category"> <i class="fa fa-plus" id="add" style="font-size:24px"></i></a>
                 </td>

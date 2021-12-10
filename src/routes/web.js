@@ -37,7 +37,7 @@ router.post("/signup", auth.validateSignup, signupController.createNewUser);
 var obj = {};
 router.get('/income', function(req, res){
 
-    connection.query('SELECT * FROM income_type', function(err, result) {
+    connection.query('SELECT * FROM income_type ORDER BY id desc', function(err, result) {
 
         if(err){
             throw err;
@@ -164,8 +164,8 @@ console.log(created_at);
     if (err) throw err;
     console.log("record inserted");
     req.flash("success", "Data added successfully!");
-
-    res.render("expenses");
+    res.redirect("/expenses")
+  
   });
 });
 
@@ -201,10 +201,15 @@ router.get("/track",function(req,res){
             res.render("track");
 })
 
-router.get("/profile", profileController.getProfilePage);
 
+
+//profile
+router.get("/profile",loginController.checkLoggedIn,profileController.getProfilePage);
+
+//addsource
 router.get("/addsource",addsourceController.getsourcePage,addsourceController.addSource);
 
+//logout
 router.post("/logout", loginController.postLogOut);
 
 module.exports = router;

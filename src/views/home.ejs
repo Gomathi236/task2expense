@@ -2,7 +2,10 @@
     <head>
         <title>Home Page</title>
         <link rel="stylesheet" href="/public/css/home.css">
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
             function openNav() {
                document.getElementById("mySidebar").style.width = "250px";
@@ -21,14 +24,20 @@
         <div>
             
             <div>
-               <h1> <button class="openbtn" onclick="openNav()"><b>☰</b> </button>EXPENSE TRACKER SYSTEM</h1>
-               
+              
+               <h1> <button class="openbtn" onclick="openNav()"><b>☰</b></button>EXPENSE TRACKER SYSTEM
+                <a href="/profile"> <span class="fa fa-user-circle-o"  id="profile" style="font-size:30px " ></span></a>
+                <p id="profile" style="font-size: 20px;">Welcome <%= user.fullname %></p> </h1>
+              
+              
+              
                 <div id="mySidebar" class="sidebar">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 <li>
-                <ol><a href="/profile">Profile</a></ol>
-                <ol><a href="/contactus">contact</a></ol>
-                <ol><a href="/track">Track</a></ol>
+                  
+                <ol><a href="/profile"><i class='fas fa-user-alt'></i> &nbsp;&nbsp;Profile</a></ol>
+                <ol><a href="/contactus"><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;contact</a></ol>
+                <ol><a href="/track"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Track</a></ol>
                 <form method="POST" action="/logout">
                   <button type="submit" class="btn btn-primary">Log out</button>
               </form>

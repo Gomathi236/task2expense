@@ -1,5 +1,8 @@
 let getProfilePage = (req,res) =>{
-    return res.render("profile.ejs");
+    return res.render("profile.ejs",{
+        user : req.user
+        
+    });
       
 };
 
