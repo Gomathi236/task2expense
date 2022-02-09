@@ -37,7 +37,7 @@ router.post("/signup", auth.validateSignup, signupController.createNewUser);
 var obj = {};
 router.get('/income', function(req, res){
 
-    connection.query('SELECT * FROM income_type ORDER BY id desc', function(err, result) {
+    connection.query('SELECT * FROM income_type ORDER BY id DESC LIMIT 1', function(err, result) {
 
         if(err){
             throw err;
@@ -51,19 +51,20 @@ router.get('/income', function(req, res){
 
 router.get('/home', function(req, res) {
 
-  res.render('home');
+  res.render('home', { user: req.user || {} });
 });
 router.get("/income",addsourceController.addSource)
 
 router.post('/income', function(req, res) {
-  let data =req.body || null;
   var date = req.body.date || null;
   var source = req.body.source || null;
   var description = req.body.description || null;
   var amount = req.body.amount || null;
   var created_at = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toJSON().slice(0, 19).replace('T', ' ');
-console.log(created_at);
+  console.log(created_at);
 
+
+  console.log(req.body);
   var sql = `INSERT INTO income (date, source, description, amount, created_at) VALUES ("${date}", "${source}", "${description}", "${amount}", "${created_at}")`;
   connection.query(sql, function(err, result) {
     if (err) throw err;
@@ -78,18 +79,17 @@ console.log(created_at);
 //addsource
 
 router.get("/addsource", (req, res) => {
-  res.render("addsource", { message: null });
+  res.render("addsource");
 });
 
-router.get("/income", function (req, res) {
-  res.render("income");
-});
+router.get("/income",addsourceController.addSource)
+
 
 router.post("/addsource", function (req, res) {
   var type = req.body.type;
   var created_at = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toJSON().slice(0, 19).replace('T', ' ');
 console.log(created_at);
-
+  
   
   console.log(req.body);
 
@@ -99,8 +99,10 @@ console.log(created_at);
     console.log("record inserted");
     req.flash("success", "Data added successfully!");
 
-    res.render("income",{data :  req.body})
+   
   });
+  res.redirect("income");
+
 });
 
 
@@ -108,7 +110,7 @@ console.log(created_at);
 var obj = {};
 router.get('/expenses', function(req, res){
 
-    connection.query('SELECT * FROM expense_type', function(err, result) {
+    connection.query('SELECT * FROM expense_type ORDER BY id DESC LIMIT 1 ', function(err, result) {
 
         if(err){
             throw err;
@@ -127,19 +129,26 @@ router.get("/home", function (req, res) {
 router.post("/expenses", function (req, res) {
   var date = req.body.date || null;
   var category = req.body.Category || null;
-  var description = req.body.description | null;
+  var description = req.body.description || null;
   var amount = req.body.amount || null;
   var created_at = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toJSON().slice(0, 19).replace('T', ' ');
   console.log(created_at);
 
+  console.log(req.body);
   
   var sql = `INSERT INTO expenses (date, category,  description, amount,created_at) VALUES ("${date}", "${category}", "${description}", "${amount}", "${created_at}")`;
-  connection.query(sql, function (err, result) {
+  
+  connection.query(sql, function (err,data ) {
     if (err) throw err;
-    console.log("record inserted");
+    console.log("User data is inserted successfully "); 
+
     req.flash("success", "Data added successfully!");
-    res.redirect("/home");
+   
+    
   });
+  res.redirect("/home")
+  
+  
 });
 
 //expense type 
@@ -147,9 +156,7 @@ router.get("/category", (req, res) => {
   res.render("category");
 });
 
-router.get("/expenses", function (req, res) {
-  res.render("expenses");
-});
+router.get("/expenses",expenseController.addExpense);
 
 router.post("/category", function (req, res) {
   var name = req.body.name;
@@ -157,16 +164,18 @@ router.post("/category", function (req, res) {
   var created_at = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toJSON().slice(0, 19).replace('T', ' ');
 console.log(created_at);
 
- 
+ console.log(req.body);
 
   var sql = `INSERT INTO expense_type (name,budget,created_at) VALUES ("${name}", "${budget}","${created_at}")`;
   connection.query(sql, function (err, result) {
     if (err) throw err;
     console.log("record inserted");
     req.flash("success", "Data added successfully!");
-    res.redirect("/expenses")
-  
+   
   });
+  res.redirect("expenses");
+  
+  
 });
 
 

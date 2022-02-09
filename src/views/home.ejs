@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Home Page</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <link rel="stylesheet" href="/public/css/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -25,9 +26,10 @@
             
             <div>
               
-               <h1> <button class="openbtn" onclick="openNav()"><b>☰</b></button>EXPENSE TRACKER SYSTEM
+               <h1> <button class="openbtn" onclick="openNav()"><b>☰</b></button>
+                EXPENSE TRACKER SYSTEM
                 <a href="/profile"> <span class="fa fa-user-circle-o"  id="profile" style="font-size:30px " ></span></a>
-                <p id="profile" style="font-size: 20px;">Welcome <%= user.fullname %></p> </h1>
+                <p id="profile" class="name" style="font-size: 20px;" >Welcome <%= user.fullname %></p> </h1>
               
               
               
@@ -35,11 +37,11 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 <li>
                   
-                <ol><a href="/profile"><i class='fas fa-user-alt'></i> &nbsp;&nbsp;Profile</a></ol>
-                <ol><a href="/contactus"><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;contact</a></ol>
-                <ol><a href="/track"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Track</a></ol>
+                <ol><a href="/profile" style = "font-family: 'Times New Roman', Times, serif;"><i class='fas fa-user-alt'></i> &nbsp;&nbsp;Profile</a></ol>
+                <ol><a href="/contactus" style = "font-family: 'Times New Roman', Times, serif; "><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;contact</a></ol>
+                <ol><a href="/track" style = "font-family: 'Times New Roman', Times, serif; "><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;Track</a></ol>
                 <form method="POST" action="/logout">
-                  <button type="submit" class="btn btn-primary">Log out</button>
+                  <button type="submit" class="btn btn-primary" style = "font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Log out</button>
               </form>
                 </li>
               </div>
@@ -51,11 +53,14 @@
                 <tr>
                   <td>
                     <div class="box">
-                      <a href="/income" class="add" style="text-decoration: none; font-size: 30px; color: purple;"><b>ADD INCOME</b></a>
+                      <img src="https://cdn-icons.flaticon.com/png/512/2655/premium/2655312.png?token=exp=1644403242~hmac=98b5c851999f74f45eb4dc06b9f18cf8" >
+                      <a href="/income" class="add" style="text-decoration: none; font-size: 30px; color: purple; "><b>ADD INCOME</b></a>
                     </div>
                   </td>
                   <td>
                     <div class="box2">
+                      <img src=https://cdn-icons-png.flaticon.com/512/5501/5501384.png>
+
                       <a href="/expenses" class="add"  style="text-decoration: none; font-size: 30px; color:purple"><b>ADD EXPENSES</b></a>
                     </div>
 
@@ -67,7 +72,30 @@
 
               </table>
             
-             
+              <canvas id="myChart" style="width:100%;max-width:600px;"></canvas>
+              <script>
+                var xValues = ["income","expenses"];
+                var yValues = [55,44,66,77];
+                var barColors = ["red", "green"];
+                
+                new Chart("myChart", {
+                  type: "bar",
+                  data: {
+                    labels: xValues,
+                    datasets: [{
+                      backgroundColor: barColors,
+                      data: yValues
+                    }]
+                  },
+                  options: {
+                    legend: {display: false},
+                    title: {
+                      display: true,
+                      text: "Expense Tracker"
+                    }
+                  }
+                });
+                </script>
         
             </div>
             

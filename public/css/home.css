@@ -13,6 +13,7 @@
 
 }
 .box{
+  
   width: 500px;
   height: 200px;
   display: flex;
@@ -26,6 +27,15 @@
   margin-top: 50px;
   text-decoration: none;
 
+}
+.box img{
+  float: left;
+  height:100px;
+  width:100px;
+  overflow:hidden;
+  size: 30px;
+  margin-top:10px;
+  margin-right: 50px;
 }
 .box2{
   width: 500px;
@@ -43,6 +53,17 @@
   text-decoration: none;
 
 }
+.box2 img{
+    float: left;
+    height:100px;
+    width:100px;
+    overflow:hidden;
+   
+    margin-top:10px;
+    margin-right: 50px;
+
+  }
+
 h1{
   display: block;
   background-color:black;
@@ -52,11 +73,12 @@ h1{
   color: white;
   font-size: 20px;
   
+  
 }
 
 body{
   margin: 0px;
- background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 .sidebar {
   height: 100%;
@@ -71,15 +93,17 @@ body{
   padding-top: 60px;
   border: black;
   
+  
 }
 
 .sidebar a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 8px;
   text-decoration: none;
   font-size: 25px;
   color: black;
   display: block;
   transition: 0.3s;
+
 }
 
 .sidebar a:hover {
@@ -91,6 +115,7 @@ body{
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  margin-bottom: 500px;
  
 }
 
@@ -99,13 +124,15 @@ body{
   cursor: pointer;
   background-color:black;
   color: white;
-  padding: 10px 10px;
   border: none;
   float: left;
+  margin-bottom: 20px;
+  padding-right : 30px;
 }
 
 .openbtn:hover {
   background-color:black;
+  
 }
 
 
@@ -124,4 +151,14 @@ body{
 #profile{
   display: flex;
   float: right;
+  
+  
+}
+.name{
+  margin: 0px 30px 4px;
+ 
+}
+#mychart{
+  margin-left: 70px;
+  margin-top: 60px;
 }

@@ -21,30 +21,26 @@ document.getElementById("source").innerHTML = type;
        
     </head>
     <body>
-        <h1>
+        <h1 style = "font-family: 'Times New Roman', Times, serif; font-weight: bolder;">
             ADD SOURCE
         </h1>
-        <% if(message) {%>
-            <div>
-                <%= message %>
-            </div>
-            <%}%>
+       
         <div class="box">
-        <form class="form" method="POST" action="/income" >
+        <form class="form" method="POST" action="/addsource" >
             <table>
            <tr>
-               <td><label>Source Type:</label></td><br/>
+               <td><label style = "font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Source Type:</label></td><br/>
                <td><input type="text" id="type" class="input-field" name="type"></td>
            </tr>
         <tr>
             <td>
-                <button type="submit"  class="btn">Save</button>
+                <button type="submit"  class="btn" style = "font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Save</button>
             </td>
         </tr>
       
         </form>
         <tr>
-            <td><a href="/income"><button class="btn">Cancel</button></a></td>
+            <td><a href="/income"><button class="btn" style = "font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Cancel</button></a></td>
         </tr>
         
         </div>
